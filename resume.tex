@@ -1,0 +1,306 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{fontspec}
+
+\setmainfont{Source Sans 3}[
+  UprightFont     = *,
+  ItalicFont      = * Italic,
+  BoldFont        = * Bold,
+  BoldItalicFont  = * Bold Italic,
+]
+
+\newfontfamily\lightfont{Source Sans 3 Light}[
+  UprightFont = Source Sans 3 Light,
+  ItalicFont  = Source Sans 3 Light Italic,
+]
+
+\newfontfamily\roboto{Roboto}
+\newfontfamily\robotolight{Roboto Light}
+\newfontfamily\robotothiin{Roboto Thin}
+
+% -----------------------------------------------------------------------------
+% Layout & Geometry
+% -----------------------------------------------------------------------------
+\usepackage[empty]{fullpage}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\setlength{\footskip}{12pt}
+\setlength{\tabcolsep}{0in}
+
+\raggedbottom
+
+% -----------------------------------------------------------------------------
+% Headers & Footers
+% -----------------------------------------------------------------------------
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% -----------------------------------------------------------------------------
+% Colors
+% -----------------------------------------------------------------------------
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{xcolor}
+
+\definecolor{darktext}{HTML}{333333}
+\definecolor{boldtext}{HTML}{111111}
+\definecolor{text}{HTML}{000000}
+\definecolor{graytext}{HTML}{5D5D5D}
+\definecolor{lighttext}{HTML}{999999}
+\definecolor{sectiondivider}{HTML}{5D5D5D}
+\definecolor{accent}{HTML}{2C3E50}
+
+\color{text}
+
+% -----------------------------------------------------------------------------
+% Miscellaneous Packages
+% -----------------------------------------------------------------------------
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fontawesome6}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+
+\urlstyle{same}
+
+% -----------------------------------------------------------------------------
+% Section Formatting
+% -----------------------------------------------------------------------------
+
+\newcommand{\sectionrule}[1]{%
+  \color{darktext}#1\hspace{0.5em}\color{sectiondivider}%
+  \leaders\hrule height 0.5pt\hfill\kern0pt%
+}
+
+\titleformat{\section}{%
+  \vspace{-4pt}\bfseries\raggedright\large%
+}{}{0em}{\sectionrule}[\vspace{-7pt}]
+
+% -----------------------------------------------------------------------------
+% Commands
+% -----------------------------------------------------------------------------
+
+\newcommand{\sep}{%
+  \hspace{3pt}\raisebox{0.15ex}{\fontsize{7}{7}\selectfont\textbullet}\hspace{3pt}%
+}
+
+\newcommand{\resumeHeading}[4]{%
+  \begin{tabular*}{0.99\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{\small #3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-5pt}%
+}
+
+\newcommand{\resumeSubheading}[4]{%
+  \vspace{-1pt}\item
+  \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    {\color{darktext}\textbf{#1}} &
+    {\fontsize{8}{10}\selectfont\lightfont\itshape\color{accent} #2}     \\[-2pt]
+    {\fontsize{8pt}{1em}\selectfont\scshape\color{darktext}#3} &
+    {\fontsize{8pt}{1em}\selectfont\lightfont\itshape\color{graytext}#4} \\
+  \end{tabular*}\vspace{-5pt}%
+}
+
+\newcommand{\resumeSubSubheading}[2]{%
+  \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    \textit{\small #1} & \textit{\small #2} \\
+  \end{tabular*}\vspace{-5pt}%
+}
+
+\newcommand{\resumeItem}[2]{%
+  \item\small{%
+    \textbf{#1}{: #2 \vspace{-2pt}}%
+  }%
+}
+
+\newcommand{\resumeItemPlain}[1]{%
+  \item\footnotesize{\lightfont\justifying #1\par}%
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{\small\textbullet}
+
+\newcommand{\resumeSubHeadingListStart}{%
+  \begin{itemize}[leftmargin=0pt, label={}, topsep=0pt]%
+}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+\newcommand{\resumeItemListStart}{%
+  \begin{itemize}[%
+    leftmargin = 0.15in,
+    label      = {\small\textbullet},
+    topsep     = 0pt,
+    parsep     = 0pt,
+    partopsep  = 0pt,
+    itemsep    = 0pt,
+  ]%
+}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+% =============================================================================
+% Document
+% =============================================================================
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% Header
+% -----------------------------------------------------------------------------
+\begin{center}
+  {\fontsize{24pt}{1em}\selectfont\robotothiin\color{graytext}
+    First {\roboto\color{darktext}\bfseries Last}} \\[5pt]
+  \robotolight\scriptsize\color{graytext}
+    {\tiny\color{graytext}\faLocationDot}\hspace{0.4em}%
+    \href{https://maps.example.com}{City, Country}
+    \quad
+    {\tiny\color{graytext}\faLinkedinIn}\hspace{0.4em}%
+    \href{https://www.linkedin.com/in/yourprofile}{yourprofile}
+    \quad
+    {\tiny\color{graytext}\faGithub}\hspace{0.4em}%
+    \href{https://github.com/yourusername}{yourusername} \\[3pt]
+  \robotolight\scriptsize\color{graytext}
+    {\tiny\color{graytext}\faEnvelope}\hspace{0.4em}%
+    \href{mailto:your.email@example.com}{your.email@example.com}
+    \quad
+    {\tiny\color{graytext}\faPhone}\hspace{0.4em}%
+    \href{tel:+10000000000}{(+1) 000 000 0000}
+\end{center}
+\vspace{-16pt}
+
+% -----------------------------------------------------------------------------
+% Education
+% -----------------------------------------------------------------------------
+\section{Education}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {University Name}{City, Country}
+      {Degree Program\sep\textbf{4.0/4.0 GPA}}{Start -- End}
+      \resumeItemListStart
+        \resumeItemPlain{%
+          {\color{boldtext}\textbf{Relevant Coursework:}}
+          Course A, Course B, Course C, Course D; coursework emphasised quantitative methods and applied problem-solving.%
+        }
+        \resumeItemPlain{%
+          Awarded a competitive merit-based scholarship for outstanding academic performance, recognised among the top students in the cohort.%
+        }
+        \resumeItemPlain{%
+          Completed an independent thesis under faculty supervision, presenting findings at an internal academic seminar.%
+        }
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Another University}{City, Country}
+      {Degree Program\sep\textbf{4.0/4.0 GPA}}{Start -- End}
+      \resumeItemListStart
+        \resumeItemPlain{Undertook advanced coursework in the field, contributing to seminars, colloquia, and collaborative research projects.}
+        \resumeItemPlain{Awarded a fully-funded exchange scholarship, competitively selected on the basis of academic merit and personal achievement.}
+        \resumeItemPlain{Actively engaged in student societies, extracurricular programmes, and completed an applied capstone project.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Third University}{City, Country}
+      {Degree Program\sep\textbf{4.0/4.0 GPA}}{Start -- End}
+      \resumeItemListStart
+        \resumeItemPlain{Undertook advanced coursework in the field, contributing to seminars, colloquia, and collaborative research projects.}
+        \resumeItemPlain{Awarded a fully-funded exchange scholarship, competitively selected on the basis of academic merit and personal achievement.}
+        \resumeItemPlain{Actively engaged in student societies, extracurricular programmes, and completed an applied capstone project.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+% -----------------------------------------------------------------------------
+% Work Experience
+% -----------------------------------------------------------------------------
+\section{Work Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Company Name}{City, Country}
+      {Job Title}{Start -- End}
+      \resumeItemListStart
+        \resumeItemPlain{Led a key cross-functional initiative from scoping through delivery, coordinating with stakeholders to ship results on time.}
+        \resumeItemPlain{Improved a core workflow or system, reducing end-to-end processing time by 40\% and lowering operational overhead.}
+        \resumeItemPlain{Partnered with senior engineers and product managers to design and ship a high-impact feature used in production.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Another Company}{City, Country}
+      {Job Title}{Start -- End}
+      \resumeItemListStart
+        \resumeItemPlain{Designed and maintained scalable data pipelines, providing leadership with timely and reliable insights for executive decisions.}
+        \resumeItemPlain{Delivered a quantifiable improvement across a key business metric, increasing model accuracy by X\% and reducing error rates.}
+        \resumeItemPlain{Collaborated with cross-functional teams across engineering, product, and business to scope requirements and deliver solutions.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Third Company}{City, Country}
+      {Job Title}{Start -- End}
+      \resumeItemListStart
+        \resumeItemPlain{Built and deployed a production-grade system end-to-end, taking ownership of the full lifecycle from requirements gathering to release.}
+        \resumeItemPlain{Achieved measurable business outcomes including significant cost reduction, improved system reliability, and faster turnaround times.}
+        \resumeItemPlain{Partnered with diverse stakeholders to translate loosely defined requirements into clear, well-scoped technical specifications.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Fourth Company}{City, Country}
+      {Job Title}{Start -- End}
+      \resumeItemListStart
+        \resumeItemPlain{Spearheaded the design of a data-driven reporting tool, consolidating insights across teams and significantly reducing time-to-insight.}
+        \resumeItemPlain{Identified and resolved a recurring operational inefficiency through automation, saving the team an estimated X hours per week.}
+        \resumeItemPlain{Mentored junior team members and overhauled internal documentation, meaningfully reducing ramp-up time for new hires.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Fifth Company}{City, Country}
+      {Job Title}{Start -- End}
+      \resumeItemListStart
+        \resumeItemPlain{Researched and evaluated emerging technologies and methodologies, producing structured recommendations that shaped the team's roadmap.}
+        \resumeItemPlain{Contributed to a high-visibility project that shipped on schedule, with direct impact on X users and measurable business value.}
+        \resumeItemPlain{Participated actively in code reviews, sprint planning, and retrospectives, upholding engineering standards across the team.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+% -----------------------------------------------------------------------------
+% Volunteering
+% -----------------------------------------------------------------------------
+\section{Volunteering}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Organisation Name}{City, Country}
+      {Role}{Start -- Present}
+      \resumeItemListStart
+        \resumeItemPlain{Contributed X hours in direct support of the organisation's mission, taking on hands-on responsibilities that produced community impact.}
+        \resumeItemPlain{Led a targeted initiative with a clear outcome, including training new volunteers and coordinating logistics for recurring events.}
+        \resumeItemPlain{Collaborated with a geographically distributed team of volunteers, demonstrating sustained commitment, adaptability, and initiative.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+% -----------------------------------------------------------------------------
+% Skills & Interests
+% -----------------------------------------------------------------------------
+\section{Skills and Interests}
+\vspace{-2pt}
+\begin{tabular*}{\textwidth}{@{}l@{\hspace{1em}}l@{}}
+  {\footnotesize\color{darktext}\textbf{Languages}}        &
+    {\footnotesize\lightfont\color{text}Language 1 (Proficiency), Language 2 (Proficiency)} \\[0pt]
+  {\footnotesize\color{darktext}\textbf{Software Toolkit}} &
+    {\footnotesize\lightfont\color{text}Python, R, SQL, C++, Docker, Git, Bash}              \\[0pt]
+  {\footnotesize\color{darktext}\textbf{Interests}}        &
+    {\footnotesize\lightfont\color{text}Interest 1, Interest 2, Interest 3}                 \\
+\end{tabular*}
+
+\end{document}
